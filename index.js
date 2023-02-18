@@ -7,11 +7,14 @@ const client = new Client({
 });
 
 const device = {
-  host: '103.154.88.109', // Replace with your MikroTik router's IP address
-  port: 2223,
-  user: 'admin', // Replace with your MikroTik username
-  pass: '009988' // Replace with your MikroTik password
+  host: 'xxx.xxx.xxx.xxx', // Replace with your MikroTik router's IP address
+  port: 22,
+  user: 'xxxx', // Replace with your MikroTik username
+  pass: 'xxxx' // Replace with your MikroTik password
 };
+
+const allowedNumbers = ['6282337444629']; // Replace with your allowed numbers
+
 
 client.on('qr', qr => {
   qrcode.generate(qr, { small: true });
@@ -23,6 +26,13 @@ client.on('ready', () => {
 
 client.on('message', async msg => {
   const text = msg.body.toLowerCase() || '';
+  const senderNumber = msg.from.replace('@c.us', '');
+
+   // Check if the sender number is allowed
+   if (!allowedNumbers.includes(senderNumber)) {
+    msg.reply('Maaf, Anda tidak diizinkan menggunakan bot ini.');
+    return;
+  }
 
   if (text === '!ping') {
     msg.reply('pong');
