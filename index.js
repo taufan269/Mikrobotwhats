@@ -13,7 +13,7 @@ const device = {
   pass: 'xxxx' // Replace with your MikroTik password
 };
 
-const allowedNumbers = ['6282337444629']; // Replace with your allowed numbers
+const allowedNumbers = ['6282xxxxxxxxxx']; // Replace with your allowed numbers
 
 
 client.on('qr', qr => {
