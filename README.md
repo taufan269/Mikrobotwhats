@@ -13,6 +13,8 @@ sudo apt install libnss3-dev libatk-bridge2.0-0 libxkbcommon-x11-0 libgtk-3-0 li
 
 sudo apt-get install chromium-browser
 
+npm install whatsapp-web.js qrcode-terminal simple-ssh
+
 npm install
 
 npm run start:dev
